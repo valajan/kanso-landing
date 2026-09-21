@@ -1,0 +1,4 @@
+{
+  "name": "kanso-frontend",
+  "pages_build_output_dir": "./dist"
+}

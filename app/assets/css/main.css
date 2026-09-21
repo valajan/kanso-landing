@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #121214;
+    color: #F5F5F7;
+    font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+
+  ::selection {
+    background: #2F80ED;
+    color: #000;
+  }
+
+}
+
+@layer components {
+  .container-grid {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .h-display {
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    border: 1px solid #232a30;
+    background: #0e1214;
+    color: #e8ecee;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .btn .arrow {
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+
+  .btn:hover .arrow {
+    transform: translateX(2px);
+  }
+}
