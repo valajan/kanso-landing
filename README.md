@@ -1,39 +1,35 @@
-# Kanso
+# Kanso — landing page
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+The marketing site for [Kanso](https://kanso.sh), a GitHub App that runs
+Lighthouse on every pull request, blocks the merge when performance
+regresses, and explains what caused it.
 
-## Setup
+This repository holds the landing page only. It is a single prerendered
+page that ships no framework JavaScript: the markup is built ahead of
+time, and the one interactive element — the mobile menu — is a native
+`<details>` element with a few lines of inline script to close it.
 
-Make sure to install dependencies:
+## Stack
+
+Nuxt 4 · Tailwind CSS · deployed to Cloudflare Pages
+
+## Local development
+
+Requires Node 20 or later.
 
 ```bash
-# npm
 npm install
+npm run dev      # http://localhost:3000
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Production build
 
 ```bash
-# npm
-npm run dev
+npm run build    # outputs to dist/
+npm run preview  # serve that build locally
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+`nuxt.config.ts` prerenders `/` and disables the client bundle, so the
+build output is static HTML, CSS and fonts. Cloudflare Pages deploys
+`dist/` on every push to `main`, and builds a preview for every pull
+request.
