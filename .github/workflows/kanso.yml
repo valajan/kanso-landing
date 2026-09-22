@@ -55,8 +55,14 @@ jobs:
         working-directory: head
         run: npm ci && npm run build
 
+      # Three loads per page and form factor, median kept. A single load swings
+      # by 20-30% on TBT, which is enough on its own to fail a change that did
+      # nothing: this page measured +23% between two builds of identical HTML.
+      # Set here rather than in .kanso.yml so a local `kanso audit` stays quick
+      # — it is CI that blocks a pull request on the difference.
       - uses: valajan/kanso@main
         with:
           working-directory: head
           url: dist
           baseline: ../base/dist
+          runs: 3
