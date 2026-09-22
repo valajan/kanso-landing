@@ -142,12 +142,15 @@
                 <span class="h-px w-3.5" style="background: #8b7dff33" />
                 ✷ Likely cause
               </div>
-              <h4
+              <!-- The line the agent writes inside the panel, not a heading
+                   of this page: the outline goes from the section's h2 to the
+                   three cards below. -->
+              <div
                 class="mt-2.5 mb-2.5 text-base font-medium tracking-tight text-ink"
               >
                 LCP delay caused by <code>loading="lazy"</code> on the hero
                 image
-              </h4>
+              </div>
               <ul class="m-0 list-none p-0 likely-causes">
                 <li
                   class="ai-li relative pb-2.5 pt-2.5 pl-5 text-sm leading-[1.55] text-ink-2 border-b border-dashed border-line"
@@ -547,10 +550,10 @@
       <!-- Bullets -->
       <div class="mt-9 grid grid-cols-1 gap-3.5 md:grid-cols-3">
         <div class="rounded-xl border border-line bg-ashen p-4">
-          <h3 class="font-mono text-xs uppercase tracking-wider text-mute">
+          <div class="font-mono text-xs uppercase tracking-wider text-mute">
             Reads the diff
-          </h3>
-          <h4 class="mb-1 mt-2 text-base font-medium text-ink">Source-aware</h4>
+          </div>
+          <h3 class="mb-1 mt-2 text-base font-medium text-ink">Source-aware</h3>
           <p class="m-0 text-sm leading-[1.55] text-ink-2">
             The agent traces the regression back to the actual lines you
             changed, not a vague Lighthouse hint.
@@ -560,9 +563,9 @@
           <div class="font-mono text-xs uppercase tracking-wider text-mute">
             Reads the trace
           </div>
-          <h4 class="mb-1 mt-2 text-base font-medium text-ink">
+          <h3 class="mb-1 mt-2 text-base font-medium text-ink">
             Lighthouse-grounded
-          </h4>
+          </h3>
           <p class="m-0 text-sm leading-[1.55] text-ink-2">
             Cross-references the Lighthouse trace timings and fetch waterfall
             before pointing to a cause.
@@ -572,9 +575,9 @@
           <div class="font-mono text-xs uppercase tracking-wider text-mute">
             Posts to the PR
           </div>
-          <h4 class="mb-1 mt-2 text-base font-medium text-ink">
+          <h3 class="mb-1 mt-2 text-base font-medium text-ink">
             Where you already work
-          </h4>
+          </h3>
           <p class="m-0 text-sm leading-[1.55] text-ink-2">
             The analysis lands in the PR comment thread. No new dashboard. No
             Slack. No tab to keep open.

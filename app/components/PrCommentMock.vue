@@ -57,9 +57,12 @@ const icon = (s: Status) => (s === 'fail' ? '❌' : s === 'warn' ? '⚠️' : '�
 
     <!-- Body -->
     <div class="px-4 py-4" style="font-family: 'IBM Plex Sans', sans-serif">
-      <h4 class="mb-2.5 text-base font-semibold text-gh-text">
+      <!-- The title of the comment in the picture, not a heading of this
+           page: between the hero's h1 and the next section's h2 there is
+           nothing for an h4 to sit under. -->
+      <div class="mb-2.5 text-base font-semibold text-gh-text">
         Kanso | Performance Report
-      </h4>
+      </div>
 
       <div class="my-2 mb-3.5 flex flex-wrap items-center gap-1.5 text-xs">
         <span
@@ -87,33 +90,42 @@ const icon = (s: Status) => (s === 'fail' ? '❌' : s === 'warn' ? '⚠️' : '�
         <thead>
           <tr>
             <th
+              scope="col"
               class="border-b px-2.5 py-2 text-left font-semibold"
               style="background: #f6f8fa; border-color: #d1d9e0"
             >
               Metric
             </th>
             <th
+              scope="col"
               class="border-b px-2.5 py-2 text-left font-semibold"
               style="background: #f6f8fa; border-color: #d1d9e0"
             >
               main
             </th>
             <th
+              scope="col"
               class="border-b px-2.5 py-2 text-left font-semibold"
               style="background: #f6f8fa; border-color: #d1d9e0"
             >
               PR
             </th>
             <th
+              scope="col"
               class="border-b px-2.5 py-2 text-left font-semibold"
               style="background: #f6f8fa; border-color: #d1d9e0"
             >
               Δ
             </th>
             <th
+              scope="col"
               class="w-5 border-b px-2.5 py-2"
               style="background: #f6f8fa; border-color: #d1d9e0"
-            ></th>
+            >
+              <!-- The column of ❌ / ⚠️ / ✅ needs a name like the others;
+                   the picture of the comment does not need to show it. -->
+              <span class="sr-only">Status</span>
+            </th>
           </tr>
         </thead>
         <tbody>
