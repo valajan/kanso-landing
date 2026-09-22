@@ -55,11 +55,15 @@
           </div>
         </div>
 
-        <!-- Body grid -->
+        <!-- Body grid. `min-w-0` on both panels: a grid item refuses by
+             default to be narrower than its content, and the code panel holds
+             lines that do not break — which pushed the whole stage 60 pixels
+             wider than the screen at 320, where its own `overflow-hidden`
+             then cut it. -->
         <div class="grid min-h-[540px] md:grid-cols-[1.1fr_1.3fr]">
           <!-- Left: analysis -->
           <div
-            class="flex flex-col gap-5 border-line p-7 md:border-r"
+            class="flex min-w-0 flex-col gap-5 border-line p-7 md:border-r"
             style="background: linear-gradient(180deg, transparent, #11101a40)"
           >
             <!-- Detected impact -->
@@ -142,12 +146,15 @@
                 <span class="h-px w-3.5" style="background: #8b7dff33" />
                 ✷ Likely cause
               </div>
-              <h4
+              <!-- The line the agent writes inside the panel, not a heading
+                   of this page: the outline goes from the section's h2 to the
+                   three cards below. -->
+              <div
                 class="mt-2.5 mb-2.5 text-base font-medium tracking-tight text-ink"
               >
                 LCP delay caused by <code>loading="lazy"</code> on the hero
                 image
-              </h4>
+              </div>
               <ul class="m-0 list-none p-0 likely-causes">
                 <li
                   class="ai-li relative pb-2.5 pt-2.5 pl-5 text-sm leading-[1.55] text-ink-2 border-b border-dashed border-line"
@@ -215,7 +222,7 @@
           </div>
 
           <!-- Right: code suggestion -->
-          <div class="flex flex-col bg-code-bg">
+          <div class="flex min-w-0 flex-col bg-code-bg">
             <div
               class="flex items-stretch gap-0 border-b border-line bg-code-bg-dark px-3"
             >
@@ -231,14 +238,21 @@
               >
                 head.html
               </div>
-              <div class="ml-auto px-3.5 py-2.5 font-mono text-xs text-mute-2">
+              <!-- Nothing is lost by leaving it out of a 320-pixel tab bar,
+                   where it wrapped onto three lines. -->
+              <div
+                class="ml-auto hidden px-3.5 py-2.5 font-mono text-xs text-mute-2 sm:block"
+              >
                 view raw ↗
               </div>
             </div>
 
-            <!-- Code -->
+            <!-- Code. A size smaller and tighter against the edges on a
+                 narrow screen: the lines fit rather than wrapping mid-tag,
+                 and what still runs long scrolls here rather than being cut
+                 off by the stage. -->
             <div
-              class="flex-1 overflow-x-auto px-5 py-5 font-mono text-sm leading-[1.7]"
+              class="flex-1 overflow-x-auto px-3 py-5 font-mono text-[11px] leading-[1.7] sm:px-5 sm:text-sm"
             >
               <!-- 24: comment -->
               <div
@@ -547,10 +561,10 @@
       <!-- Bullets -->
       <div class="mt-9 grid grid-cols-1 gap-3.5 md:grid-cols-3">
         <div class="rounded-xl border border-line bg-ashen p-4">
-          <h3 class="font-mono text-xs uppercase tracking-wider text-mute">
+          <div class="font-mono text-xs uppercase tracking-wider text-mute">
             Reads the diff
-          </h3>
-          <h4 class="mb-1 mt-2 text-base font-medium text-ink">Source-aware</h4>
+          </div>
+          <h3 class="mb-1 mt-2 text-base font-medium text-ink">Source-aware</h3>
           <p class="m-0 text-sm leading-[1.55] text-ink-2">
             The agent traces the regression back to the actual lines you
             changed, not a vague Lighthouse hint.
@@ -560,9 +574,9 @@
           <div class="font-mono text-xs uppercase tracking-wider text-mute">
             Reads the trace
           </div>
-          <h4 class="mb-1 mt-2 text-base font-medium text-ink">
+          <h3 class="mb-1 mt-2 text-base font-medium text-ink">
             Lighthouse-grounded
-          </h4>
+          </h3>
           <p class="m-0 text-sm leading-[1.55] text-ink-2">
             Cross-references the Lighthouse trace timings and fetch waterfall
             before pointing to a cause.
@@ -572,9 +586,9 @@
           <div class="font-mono text-xs uppercase tracking-wider text-mute">
             Posts to the PR
           </div>
-          <h4 class="mb-1 mt-2 text-base font-medium text-ink">
+          <h3 class="mb-1 mt-2 text-base font-medium text-ink">
             Where you already work
-          </h4>
+          </h3>
           <p class="m-0 text-sm leading-[1.55] text-ink-2">
             The analysis lands in the PR comment thread. No new dashboard. No
             Slack. No tab to keep open.

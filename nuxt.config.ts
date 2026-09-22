@@ -1,3 +1,14 @@
+// The page is served from one origin and shared under one title: naming
+// them once keeps the canonical, the Open Graph tags and the <title> from
+// drifting apart.
+const SITE = 'https://kanso.sh';
+const TITLE =
+  'Kanso | Automated Lighthouse audits and analysis for every GitHub PR';
+const DESCRIPTION =
+  'Kanso is a GitHub App that automates Lighthouse on PRs, blocking merges if performance regresses, while our agent identifies the exact cause.';
+const OG_IMAGE_ALT =
+  'Kanso — you\'ll know why it broke. Lighthouse on every pull request.';
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
@@ -39,16 +50,33 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      title:
-        'Kanso | Automated Lighthouse audits and analysis for every GitHub PR',
+      title: TITLE,
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        {
-          name: 'description',
-          content:
-            'Kanso is a GitHub App that automates Lighthouse on PRs, blocking merges if performance regresses, while our agent identifies the exact cause.',
-        },
+        { name: 'description', content: DESCRIPTION },
+
+        // What a link preview is built from. The page answers at both
+        // kanso.sh and www.kanso.sh; a scraper fetches og:image on its own,
+        // from the tag alone, so every URL here is absolute.
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: SITE + '/' },
+        { property: 'og:title', content: TITLE },
+        { property: 'og:description', content: DESCRIPTION },
+        { property: 'og:image', content: SITE + '/og.png' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:alt', content: OG_IMAGE_ALT },
+        { property: 'og:site_name', content: 'Kanso' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+      ],
+      link: [
+        // The Redirect Rule sends www to the apex at the edge; this is what
+        // says so in the HTML, so a search engine ranks one page and not two.
+        { rel: 'canonical', href: SITE + '/' },
+        // Named, so the browser stops asking for /favicon.ico and logging the
+        // 404 that comes back.
+        { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
       ],
       script: [
         {

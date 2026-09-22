@@ -14,7 +14,7 @@
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
-                fill="#2F80ED"
+                fill="#3C88EE"
                 viewBox="0 0 256 256"
               >
                 <path
@@ -39,7 +39,7 @@
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
-                fill="#2F80ED"
+                fill="#3C88EE"
                 viewBox="0 0 256 256"
               >
                 <path
@@ -64,7 +64,7 @@
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
-                fill="#2F80ED"
+                fill="#3C88EE"
                 viewBox="0 0 256 256"
               >
                 <path

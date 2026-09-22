@@ -19,7 +19,7 @@
   }
 
   ::selection {
-    background: #2F80ED;
+    background: #3C88EE;
     color: #000;
   }
 
@@ -63,5 +63,24 @@
 
   .btn:hover .arrow {
     transform: translateX(2px);
+  }
+}
+/* Someone who asked their system for less motion gets a page that does not
+   move. What only fades or changes colour is left alone: that is what
+   reduced motion usually puts in place of a movement, not one more of them.
+   Unlayered, so it lands after Tailwind's utilities — and `!important`
+   because a `*` selector loses to any class without it. */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    transition-property: color, background-color, border-color, fill, stroke,
+      opacity, box-shadow !important;
+  }
+
+  /* The mobile menu can simply be there instead of dropping in. */
+  nav .animate-nav-drop {
+    animation: none;
   }
 }
