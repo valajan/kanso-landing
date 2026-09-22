@@ -92,7 +92,7 @@
 
 <style scoped>
 .yaml-com {
-  color: #565c63;
+  color: #808891;
 }
 .yaml-key {
   color: theme('colors.lavender');
@@ -104,7 +104,7 @@
   color: theme('colors.matcha');
 }
 .yaml-dash {
-  color: #7a8088;
+  color: #939aa2;
 }
 
 .config-feat-p :deep(code) {

@@ -9,8 +9,12 @@ export default {
         line: '#232a30',
         ink: '#F5F5F7',
         'ink-2': '#b6bcc1',
-        mute: '#7a8088',
-        'mute-2': '#565c63',
+        // The two quiet steps of the text ramp. Both used to sit below 4.5:1
+        // on the surfaces they are printed on — #565c63 could not reach it on
+        // any background, black included — so the ramp was lifted rather than
+        // the backgrounds darkened. The step between them is kept.
+        mute: '#939aa2',
+        'mute-2': '#808891',
         'pg-green': '#4ade80',
         'pg-red': '#f87171',
         lavender: '#8aadf4',
@@ -18,7 +22,9 @@ export default {
         'gh-text': '#1f2328',
         'code-bg': '#1e1e2e',
         'code-bg-dark': '#181825',
-        ruri: '#2F80ED',
+        // Raised from #2F80ED: the old blue carried 4.4:1 as text on `ashen`,
+        // just under the line. One blue still, for text, fills and rules.
+        ruri: '#3C88EE',
         shibu: '#E05A47',
         paper: '#F7F4EE',
         'paper-2': '#EFEAE0',

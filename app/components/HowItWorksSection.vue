@@ -79,7 +79,7 @@
           <div class="mb-1.5 flex items-center gap-2">
             <div class="h-px flex-1 bg-ruri/20"></div>
             <span
-              class="font-mono text-[9px] uppercase tracking-widest text-ruri/60"
+              class="font-mono text-[9px] uppercase tracking-widest text-ruri"
               >kanso</span
             >
             <div class="h-px flex-1 bg-ruri/20"></div>
@@ -425,7 +425,7 @@
             <pre
               class="px-3.5 py-3 font-mono text-xs leading-relaxed"
               style="background: #ffffff"
-            ><span style="background:#ffe1e1;color:#cf222e;display:block;padding:0 6px">- &lt;img src="/hero.webp" class="hero-img" /&gt;</span><span style="background:#d4f8d4;color:#1a7f37;display:block;padding:0 6px">+ &lt;img src="/hero.webp" class="hero-img" loading="lazy" /&gt;</span></pre>
+            ><span style="background:#ffe1e1;color:#c8212c;display:block;padding:0 6px">- &lt;img src="/hero.webp" class="hero-img" /&gt;</span><span style="background:#d4f8d4;color:#197b35;display:block;padding:0 6px">+ &lt;img src="/hero.webp" class="hero-img" loading="lazy" /&gt;</span></pre>
 
             <div
               class="border-t px-3.5 py-3 text-xs leading-relaxed"
@@ -491,26 +491,26 @@
 .pipeline-icon {
   width: 20px;
   height: 20px;
-  color: #7a8088;
+  color: #939aa2;
 }
 
 .pipeline-label {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
-  color: #7a8088;
+  color: #939aa2;
   white-space: nowrap;
 }
 
 /* ── Kanso node variant ───────────────────────────────── */
 .pipeline-node--kanso {
-  border-color: rgba(47, 128, 237, 0.35);
-  background: rgba(47, 128, 237, 0.05);
+  border-color: rgba(60, 136, 238, 0.35);
+  background: rgba(60, 136, 238, 0.05);
 }
 .pipeline-node--kanso .pipeline-icon {
-  color: #2f80ed;
+  color: #3c88ee;
 }
 .pipeline-node--kanso .pipeline-label {
-  color: #2f80ed;
+  color: #3c88ee;
 }
 
 /* ── Success node variant ─────────────────────────────── */
@@ -536,15 +536,15 @@
 }
 
 .pipeline-conn--entry {
-  background: linear-gradient(to right, #232a30, rgba(47, 128, 237, 0.4));
+  background: linear-gradient(to right, #232a30, rgba(60, 136, 238, 0.4));
 }
 
 .pipeline-conn--exit {
-  background: linear-gradient(to right, rgba(47, 128, 237, 0.4), #232a30);
+  background: linear-gradient(to right, rgba(60, 136, 238, 0.4), #232a30);
 }
 
 .pipeline-conn--kanso {
-  background: rgba(47, 128, 237, 0.2);
+  background: rgba(60, 136, 238, 0.2);
   overflow: hidden;
   min-width: 36px;
   flex: 1;
@@ -560,7 +560,7 @@
   background: linear-gradient(
     to right,
     transparent,
-    rgba(47, 128, 237, 0.95),
+    rgba(60, 136, 238, 0.95),
     transparent
   );
   animation: flow 2s linear infinite;
@@ -592,23 +592,23 @@
 .mobile-icon {
   width: 16px;
   height: 16px;
-  color: #7a8088;
+  color: #939aa2;
 }
 .mobile-label {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
-  color: #7a8088;
+  color: #939aa2;
   white-space: nowrap;
 }
 .mobile-node--kanso {
-  border-color: rgba(47, 128, 237, 0.35);
-  background: rgba(47, 128, 237, 0.05);
+  border-color: rgba(60, 136, 238, 0.35);
+  background: rgba(60, 136, 238, 0.05);
 }
 .mobile-node--kanso .mobile-icon {
-  color: #2f80ed;
+  color: #3c88ee;
 }
 .mobile-node--kanso .mobile-label {
-  color: #2f80ed;
+  color: #3c88ee;
 }
 .mobile-node--success {
   border-color: rgba(166, 218, 149, 0.35);
@@ -631,7 +631,7 @@
 .mobile-conn--kanso {
   position: relative;
   overflow: hidden;
-  background: rgba(47, 128, 237, 0.2);
+  background: rgba(60, 136, 238, 0.2);
 }
 
 /* ── Kanso group wrapper ──────────────────────────────── */
@@ -647,8 +647,8 @@
   position: absolute;
   inset: -10px -12px;
   border-radius: 18px;
-  background: rgba(47, 128, 237, 0.025);
-  border: 1px solid rgba(47, 128, 237, 0.12);
+  background: rgba(60, 136, 238, 0.025);
+  border: 1px solid rgba(60, 136, 238, 0.12);
   pointer-events: none;
 }
 
@@ -666,14 +666,16 @@
 .kanso-label-line {
   flex: 1;
   height: 1px;
-  background: rgba(47, 128, 237, 0.2);
+  background: rgba(60, 136, 238, 0.2);
 }
 .kanso-label-text {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: rgba(47, 128, 237, 0.55);
+  /* Full strength: at 55% the label read 2.3:1 against the page. The rules
+     on either side of it stay faint — they are decoration, not text. */
+  color: #3c88ee;
   white-space: nowrap;
 }
 </style>
