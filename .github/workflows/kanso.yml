@@ -1,0 +1,62 @@
+name: Kanso
+
+# Kanso audits this page on every pull request, in the job's own runner: the
+# pull request's build and the base branch's build are served by Kanso itself,
+# on the same runner and the same Chrome, so what the comparison reports is the
+# change and not two different hostings. The budgets come from .kanso.yml, the
+# report lands in the job summary, and the job fails on a regression.
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+# A newer push makes the running audit irrelevant.
+concurrency:
+  group: kanso-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    # Pinned rather than ubuntu-latest: the runner image decides which Chrome
+    # measures the page, and a Chrome change moves the numbers the budgets are
+    # written against. The comparison would survive it — both sides share the
+    # runner — but the budgets would not.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      # The pull request and its base, side by side, so neither build sees the
+      # other's files. The build runs the pull request's code: keep the token
+      # out of its reach.
+      - uses: actions/checkout@v7
+        with:
+          path: head
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          path: base
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+
+      # Nuxt needs 20.19+, Kanso needs 22.19+.
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            head/package-lock.json
+            base/package-lock.json
+
+      - name: Build the base branch
+        working-directory: base
+        run: npm ci && npm run build
+      - name: Build the pull request
+        working-directory: head
+        run: npm ci && npm run build
+
+      - uses: valajan/kanso@main
+        with:
+          working-directory: head
+          url: dist
+          baseline: ../base/dist
