@@ -578,6 +578,17 @@
   }
 }
 
+/* Stopped where it starts, the dot would sit off the left end of the
+   connector and the connector would read as dead. It fills it instead:
+   the same thing said standing still. */
+@media (prefers-reduced-motion: reduce) {
+  .conn-flow {
+    animation: none;
+    width: 100%;
+    background: rgba(60, 136, 238, 0.6);
+  }
+}
+
 /* ── Mobile nodes ─────────────────────────────────────── */
 .mobile-node {
   display: flex;
