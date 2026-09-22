@@ -422,8 +422,10 @@
               <span style="color: #59636e">· line 14</span>
             </div>
 
+            <!-- Two lines of a diff, and nothing depends on where they
+                 break: they wrap rather than run off the card. -->
             <pre
-              class="px-3.5 py-3 font-mono text-xs leading-relaxed"
+              class="whitespace-pre-wrap break-words px-3.5 py-3 font-mono text-xs leading-relaxed"
               style="background: #ffffff"
             ><span style="background:#ffe1e1;color:#c8212c;display:block;padding:0 6px">- &lt;img src="/hero.webp" class="hero-img" /&gt;</span><span style="background:#d4f8d4;color:#197b35;display:block;padding:0 6px">+ &lt;img src="/hero.webp" class="hero-img" loading="lazy" /&gt;</span></pre>
 

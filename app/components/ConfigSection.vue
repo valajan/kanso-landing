@@ -56,15 +56,18 @@
             >
             <span>.kanso.yml</span>
           </div>
+          <!-- YAML is whitespace, so this one cannot wrap: it scrolls on
+               its own instead, which is what WCAG's reflow rule allows a
+               block of code to do. -->
           <pre
-            class="m-0 px-5 py-4 font-mono text-sm leading-[1.75] whitespace-pre"
+            class="m-0 overflow-x-auto px-5 py-4 font-mono text-sm leading-[1.75] whitespace-pre"
           ><span class="yaml-com"># .kanso.yml</span>
 
 <span class="yaml-com"># Your production URL</span>
 <span class="yaml-key">base_url</span>: <span class="yaml-str">"https://my-domain.com"</span>
 
 <span class="yaml-key">staging</span>:
-  <span class="yaml-com"># optional · auto-detected for Vercel, Netlify, Render, Railway, Cloudflare Pages, Amplify</span>
+  <span class="yaml-com"># optional · auto-detected on the hosts above</span>
   <span class="yaml-key">url</span>: <span class="yaml-str">"https://acme-git-{branch}.staging.app"</span>
 
 <span class="yaml-key">urls</span>:
@@ -75,7 +78,7 @@
   <span class="yaml-dash">-</span> <span class="yaml-key">path</span>: <span class="yaml-str">/blog</span>
     <span class="yaml-key">name</span>: <span class="yaml-str">Blog</span>
 
-<span class="yaml-com"># If your production configuration differs, prefer using budgets</span>
+<span class="yaml-com"># If your production configuration differs, use budgets</span>
 <span class="yaml-key">budgets</span>:
   <span class="yaml-key">performance</span>: <span class="yaml-num">90</span>   <span class="yaml-com"># score / 100 · blocks merge if below</span>
   <span class="yaml-key">lcp</span>: <span class="yaml-num">2500</span>     <span class="yaml-com"># ms · Largest Contentful Paint</span>

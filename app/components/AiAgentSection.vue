@@ -55,11 +55,15 @@
           </div>
         </div>
 
-        <!-- Body grid -->
+        <!-- Body grid. `min-w-0` on both panels: a grid item refuses by
+             default to be narrower than its content, and the code panel holds
+             lines that do not break — which pushed the whole stage 60 pixels
+             wider than the screen at 320, where its own `overflow-hidden`
+             then cut it. -->
         <div class="grid min-h-[540px] md:grid-cols-[1.1fr_1.3fr]">
           <!-- Left: analysis -->
           <div
-            class="flex flex-col gap-5 border-line p-7 md:border-r"
+            class="flex min-w-0 flex-col gap-5 border-line p-7 md:border-r"
             style="background: linear-gradient(180deg, transparent, #11101a40)"
           >
             <!-- Detected impact -->
@@ -218,7 +222,7 @@
           </div>
 
           <!-- Right: code suggestion -->
-          <div class="flex flex-col bg-code-bg">
+          <div class="flex min-w-0 flex-col bg-code-bg">
             <div
               class="flex items-stretch gap-0 border-b border-line bg-code-bg-dark px-3"
             >
@@ -234,14 +238,21 @@
               >
                 head.html
               </div>
-              <div class="ml-auto px-3.5 py-2.5 font-mono text-xs text-mute-2">
+              <!-- Nothing is lost by leaving it out of a 320-pixel tab bar,
+                   where it wrapped onto three lines. -->
+              <div
+                class="ml-auto hidden px-3.5 py-2.5 font-mono text-xs text-mute-2 sm:block"
+              >
                 view raw ↗
               </div>
             </div>
 
-            <!-- Code -->
+            <!-- Code. A size smaller and tighter against the edges on a
+                 narrow screen: the lines fit rather than wrapping mid-tag,
+                 and what still runs long scrolls here rather than being cut
+                 off by the stage. -->
             <div
-              class="flex-1 overflow-x-auto px-5 py-5 font-mono text-sm leading-[1.7]"
+              class="flex-1 overflow-x-auto px-3 py-5 font-mono text-[11px] leading-[1.7] sm:px-5 sm:text-sm"
             >
               <!-- 24: comment -->
               <div
