@@ -1,5 +1,4 @@
-base_url: https://kanso.sh
-ai_analysis: true
+# Stricter than Kanso's defaults: this page is the product's own shop window.
 budgets:
   performance: 90
   lcp: 2500
