@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Kanso">
+  <!-- An ensō, the open circle drawn in one stroke: the page's own subject,
+       and the one shape that still reads at 16 pixels. -->
+  <rect width="32" height="32" rx="7" fill="#121214"/>
+  <path d="M22.6 8.4a10 10 0 1 0 2.6 6.1"
+        fill="none" stroke="#2F80ED" stroke-width="3.4" stroke-linecap="round"/>
+</svg>
