@@ -58,9 +58,16 @@
           </div>
           <!-- YAML is whitespace, so this one cannot wrap: it scrolls on
                its own instead, which is what WCAG's reflow rule allows a
-               block of code to do. -->
+               block of code to do. A block that scrolls must be reachable
+               by the keyboard too (WCAG 2.1.1), or its right-hand side is
+               out of reach without a mouse: it takes focus, as a named
+               region, and its ring is drawn inside — the card's
+               overflow-hidden would cut one drawn outside. -->
           <pre
-            class="m-0 overflow-x-auto px-5 py-4 font-mono text-sm leading-[1.75] whitespace-pre"
+            tabindex="0"
+            role="region"
+            aria-label=".kanso.yml example"
+            class="m-0 overflow-x-auto px-5 py-4 font-mono text-sm leading-[1.75] whitespace-pre focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-lavender"
           ><span class="yaml-com"># .kanso.yml</span>
 
 <span class="yaml-com"># Your production URL</span>
